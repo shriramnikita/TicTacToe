@@ -21,10 +21,49 @@ function beginWithTtoss()
 		if [ $assignLetter -eq 1 ]
 		then
 			player="X"
-			printf "Player will play first"
+			echo "Player will play first"
 		else
 			player="O"
-			printf "Computer will  play first"
+			echo "Computer will  play first"
 		fi
 }
 beginWithTtoss
+
+#uc4 display tic tac toe board
+function displayBoard(){
+	echo "+---+---+---+"
+	echo "| ${ticTacToe[1]} | ${ticTacToe[2]} | ${ticTacToe[3]} |"
+	echo "+---+---+---+"
+	echo "| ${ticTacToe[4]} | ${ticTacToe[5]} | ${ticTacToe[6]} |"
+	echo "+---+---+---+"
+	echo "| ${ticTacToe[7]} | ${ticTacToe[8]} | ${ticTacToe[9]} |" 
+	echo "+---+---+---+"
+}
+
+function validateCell()
+{
+	displayBoard
+	count=0
+	read -p "enter a cell position between 1 to 9 " position
+	for (( counter=1;counter<=9;counter++ ))
+	do
+		if [ $position -eq $counter ]
+		then
+			count=1
+			break
+		else
+			count=0
+		fi
+	done
+
+	if [ $count -eq 1 ]
+	then
+	 	ticTacToe[$i]=X
+		displayBoard  ${ticTacToe[$i]} 
+
+	else
+		validateCell
+
+	fi
+}
+validateCell
