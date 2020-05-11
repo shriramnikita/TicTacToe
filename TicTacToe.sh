@@ -10,3 +10,13 @@ function resetBoard(){
 	done
 }
 resetBoard
+
+
+#uc2 assign letter X or O
+assignLetter=$((RANDOM%2))
+if [ $assignLetter -eq 1 ]
+then
+	player="X"
+else
+	player="O"
+fi
