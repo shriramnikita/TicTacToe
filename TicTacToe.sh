@@ -12,11 +12,19 @@ function resetBoard(){
 resetBoard
 
 
-#uc2 assign letter X or O
-assignLetter=$((RANDOM%2))
-if [ $assignLetter -eq 1 ]
-then
-	player="X"
-else
-	player="O"
-fi
+#uc3 bbegin with toss to choose between player or computer
+function beginWithTtoss()
+{
+	#uc2 assign letter X or O
+	assignLetter=$((RANDOM%2))
+
+		if [ $assignLetter -eq 1 ]
+		then
+			player="X"
+			printf "Player will play first"
+		else
+			player="O"
+			printf "Computer will  play first"
+		fi
+}
+beginWithTtoss
